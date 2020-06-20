@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -33,7 +34,25 @@ public class User
 	      name="user_role",
 	      joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
 	      inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
-	private List<Role> roles;
+	private Collection<Role> roles;
+
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String email, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+	}
+
+	public User(String firstName, String lastName, String email, String password, List<Role> roles) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 	
 	public Integer getId()
 	{
@@ -59,7 +78,7 @@ public class User
 	{
 		this.password = password;
 	}
-	public List<Role> getRoles()
+	public Collection<Role> getRoles()
 	{
 		return roles;
 	}
@@ -79,4 +98,5 @@ public class User
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 }

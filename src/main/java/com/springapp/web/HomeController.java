@@ -1,4 +1,4 @@
-package com.springapp.controller;
+package com.springapp.web;
 
 import com.springapp.model.Message;
 import com.springapp.repository.MessageRepository;

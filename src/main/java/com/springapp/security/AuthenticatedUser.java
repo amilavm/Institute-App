@@ -7,7 +7,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class AuthenticatedUser extends org.springframework.security.core.userdetails.User
@@ -30,7 +29,7 @@ public class AuthenticatedUser extends org.springframework.security.core.userdet
 	private static Collection<? extends GrantedAuthority> getAuthorities(User user)
 	{
 		Set<String> roleAndPermissions = new HashSet<>();
-		List<Role> roles = user.getRoles();
+		Collection<Role> roles = user.getRoles();
 		
 		for (Role role : roles)
 		{

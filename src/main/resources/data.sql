@@ -28,3 +28,8 @@ insert into user_role(user_id, role_id) values
 (1,3),
 (3,2)
 ;
+
+-- since we use Hibernate Identity for generate auto id for each user registration,
+-- by default its initial value set for 1, but we manually create 2 users in this script and
+-- therefore the initial value set as 4
+UPDATE hibernate_sequence SET next_val = 4 WHERE next_val = 1;
