@@ -2,6 +2,7 @@ package com.springapp.web;
 
 import com.springapp.model.Message;
 import com.springapp.repository.MessageRepository;
+import com.springapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +14,14 @@ public class HomeController
 {
 	@Autowired
 	private MessageRepository messageRepository;
+
+	@Autowired
+	private UserRepository userRepository;
 	
 	@GetMapping("/home")
 	public String home(Model model)
 	{
-		model.addAttribute("msgs", messageRepository.findAll());		
+		model.addAttribute("msgs", messageRepository.findAll());
 		return "userhome";
 	}
 	

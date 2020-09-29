@@ -1,23 +1,58 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       layout:decorator="layout">
-      
+
       <head>
         <title>Home</title>
     </head>
     <body>
     	<div layout:fragment="content">
-    	
+
 		     <p sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></p>
-	         <p><a th:href="@{/home}">User Home</a></p>
-		     <p><a th:href="@{/admin/home}">Admin Home</a></p>
-			 <p><a th:href="@{/registration}">Register</a></p>
+	         <a th:href="@{/home}">User Home</a>
+		     <a th:href="@{/admin/home}">Admin Home</a>
+			 <a th:href="@{/registration}">Register</a>
 		     <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>
+
+			<div class="jumbotron">
+				<div class="row text-center">
+					<div class="">
+
+						<h3><span style="color:#18137d">Institution User Management System</span></h3>
+
+						<p>
+							The demonstration vehicle for this course will be based on a use case from Keysoft Inc., a fictitious company, that needs to quickly develop an application to help manage bug fixes and enhancement requests for their applications. Keysoft’s engineering team has decided to utilize Spring Boot to make development faster and deployment easier with minimal boilerplate code and configuration. During the course, you walk through the use case of creating the bug tracking application, Trackzilla, using Spring Boot.
+						</p>
+						<img src="/images/virus.png" style="width:20%" />
+					</div>
+				</div>
+			</div>
+
     	</div>
-    	
+
     </body>
-    
+
 </html>
+
+<!--<!DOCTYPE HTML>-->
+<!--<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">-->
+<!--<head>-->
+	<!--<title>Spring Boot Thymeleaf + Spring Security</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div layout:fragment="content" class="container">-->
+
+	<!--<div class="jumbotron">-->
+		<!--<h1>Navbar example</h1>-->
+		<!--<p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work.-->
+			<!--It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>-->
+		<!--<p>-->
+			<!--<a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>-->
+		<!--</p>-->
+	<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
